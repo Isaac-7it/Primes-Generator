@@ -27,10 +27,12 @@ echo is_prime($input);
 */
 
 // Primes Generator
-$start = 2000;
-$end = 5000;
-function prime_generator($start_count, $end_count) {
-    $primes = [];
+$start = 2000000;
+$end = 500000;
+function prime_generator(int $start_count, int $end_count): string
+{
+    if ($start_count < $end_count) {
+        $primes = [];
     $numbers = [];
     $factor_set = [];
     
@@ -62,6 +64,9 @@ function prime_generator($start_count, $end_count) {
         $concat .= ($prime . ", ");
     }
     return "Primes between $start_count and $end_count are: $concat";
+    } else {
+        return "Start number must be greater than End number";
+    }
 }
 
 echo prime_generator($start, $end);
